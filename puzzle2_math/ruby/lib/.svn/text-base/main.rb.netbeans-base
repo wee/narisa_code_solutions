@@ -1,0 +1,6 @@
+require "puzzle2"
+
+puzzle = Puzzle2.new(5, [:+, :-, :*, :/])
+(2..9).each do |number|
+  puzzle.find_solution(number) { |solution| puts solution }
+end
