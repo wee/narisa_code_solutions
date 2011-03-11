@@ -20,20 +20,6 @@ class MinimumCoinChange
     []
   end
 
-  def change2(amount)
-    digits = 1
-    while true
-      minimum = amount + 1
-      permute(digits, coin_types.sort).map do |coins|
-        sum = [coins].flatten.inject(0) { |sum, coin| sum + coin }
-        return [coins].flatten if sum == amount
-        minimum = sum if sum < minimum
-      end
-      break if minimum > amount
-      digits += 1
-    end
-    []
-  end
   def permute(digits, coins = coin_types)
     return coins.map { |coin| coin } if digits == 1
     result = []
